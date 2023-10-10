@@ -4,7 +4,7 @@
 
 https://vuejs.org/guide/essentials/reactivity-fundamentals.html#why-refs
 
-* When a component is rendered for the first time, Vue tracks every `ref`
+* For primitive types
 * When a `ref` is mutated, it will trigger a re-render for components that are tracking it.
 * Vue automatically detects the change and updates the DOM accordingly
 
@@ -30,9 +30,9 @@ function increment() {
 
 https://vuejs.org/guide/essentials/reactivity-fundamentals.html#reactive
 
-* Converts the object deeply
+* For object types
+* Deep conversion, nested objects are also wrapped
 * `reactive()` return a `Proxy` of the original object, which is not equal to the original object
-* Only works for object types: array, map, set, object
 * Destructure will lose the reactivity connection
 
 ```vue
@@ -57,4 +57,23 @@ function increment() {
 
 https://vuejs.org/api/reactivity-advanced.html#shallowreactive
 
-* Only root-level properties are reactive
+* For object types
+* No deep conversion, only root-level properties are reactive
+
+```vue
+<script setup>
+import { shallowReactive } from 'vue'
+
+const state = shallowReactive({ count: 0 })
+
+function increment() {
+  count++
+}
+</script>
+
+<template>
+  <button v-on:click="increment">
+    {{ count }}
+  </button>
+</template>
+```
