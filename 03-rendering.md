@@ -1,31 +1,32 @@
-# Template
+# Rendering
+
+## Text Interpolation
 
 https://vuejs.org/guide/essentials/template-syntax.html
 
-## Bind
-
 ```vue
-<div v-bind:id="dynamicId"></div>
+<script setup>
+import { ref } from 'vue'
+
+const msg = ref("Click")
+</script>
+
+<template>
+  <button>{{ msg }}</button>
+</template>
 ```
 
-```vue
-<button :disabled="isButtonDisabled">Button</button>
-```
-
-## If
+## Conditional Rendering
 
 ```vue
-<p v-if="isShow">Now you see me</p>
-```
+<script setup>
+import { ref } from 'vue'
 
-## On Click
+const isShow = ref(true)
+</script>
 
-```vue
-<a v-on:click="doSomething"> ... </a>
-```
-
-## Form submit
-
-```vue
-<form @submit.prevent="onSubmit">...</form>
+<template>
+  <h1>Conditional Rendering</h1>
+  <p v-if="isShow">Now you see me</p>
+</template>
 ```
