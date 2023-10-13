@@ -23,3 +23,25 @@ const isRed = ref(true)
 }
 </style>
 ```
+
+```vue
+<script setup>
+import { reactive } from 'vue'
+
+const textBlue = reactive({
+  'text-red': true,
+})
+</script>
+
+<template>
+  <div v-bind:class="textBlue">
+    <h1>Hello</h1>
+  </div>
+</template>
+
+<style>
+.text-red {
+  color: blue;
+}
+</style>
+```
