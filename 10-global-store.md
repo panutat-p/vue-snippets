@@ -2,7 +2,7 @@
 
 We keep on building our store from scratch.
 We will use `effectScope` to properly collect all the effects associated to a store.
-* `effectScope()` will be disposed by a component
+* `effectScope()` can be disposed by a component
 * `effectScope(true)` cannot be disposed by a component
 
 ```typescript
