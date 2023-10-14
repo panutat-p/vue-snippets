@@ -1,7 +1,9 @@
 # Global Stores
 
 We keep on building our store from scratch.
-We will use `effectScope()`` to properly collect all the reactive effects associated to a store.
+We will use `effectScope` to properly collect all the effects associated to a store.
+* `effectScope()` will be disposed by a component
+* `effectScope(true)` cannot be disposed by a component
 
 ```typescript
 import { effectScope } from 'vue'
@@ -11,7 +13,7 @@ let count
 
 function useCount() {
   if (!effect) {
-    count = effectScope().run(() => ref(0))
+    count = effectScope(true).run(() => ref(0))
   }
   return { count }
 }
