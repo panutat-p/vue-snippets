@@ -1,4 +1,4 @@
-# Global Stores
+# Stores
 
 We keep on building our store from scratch.
 We will use `effectScope` to properly collect all the effects associated to a store.
