@@ -4,6 +4,7 @@ https://router.vuejs.org/installation.html
 
 ## $route
 
+* Define `path: '/product/:page'` in `router`
 * Visiting `http://localhost:4000/products/2?year=2023`
 
 ```vue
@@ -15,6 +16,7 @@ https://router.vuejs.org/installation.html
 
 ## useRoute
 
+* Define `path: '/product/:page'` in `router`
 * Visiting `http://localhost:4000/products/2?year=2023`
 
 ```vue
