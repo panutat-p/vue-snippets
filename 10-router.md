@@ -59,3 +59,55 @@ const year = computed(() => parseInt(<string>route.query.year) || 2000)
   <p>Year: {{ year }}</p>
 </template>
 ```
+
+## Props Object Mode
+
+```javascript
+const routes = [
+  {
+    path: "/",
+    name: "Home",
+    component: Home,
+    props: { showExtra: true },
+  },
+```
+
+```vue
+<script setup>
+defineProps(['showExtra'])
+</script>
+
+<template>
+  <div class="home">
+    <h1>This is a home page</h1>
+    <div v-if="showExtra">Extra stuff</div>
+  </div>
+</template>
+```
+
+## Props Function Mode
+
+```javascript
+const routes = [
+  {
+    path: "/",
+    name: "Home",
+    component: Home,
+    props: route => {
+      return { showExtra: route.query.e }
+    }
+  },
+```
+
+```vue
+<script setup>
+defineProps(['showExtra'])
+</script>
+
+<template>
+  <div class="home">
+    <h1>This is a home page</h1>
+    <div v-if="showExtra">Extra stuff</div>
+  </div>
+</template>
+```
