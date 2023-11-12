@@ -4,8 +4,20 @@ https://router.vuejs.org/installation.html
 
 ## $route
 
-* Define `path: '/product/:page'` in `router`
 * Visiting `http://localhost:4000/products/2?year=2023`
+
+```typescript
+const router = createRouter({
+  history: createWebHistory(import.meta.env.BASE_URL),
+  routes: [
+    {
+      path: '/product/:page',
+      name: 'product',
+      component: ProductView,
+    },
+  ],
+})
+```
 
 ```vue
 <template>
@@ -16,8 +28,20 @@ https://router.vuejs.org/installation.html
 
 ## useRoute
 
-* Define `path: '/product/:page'` in `router`
 * Visiting `http://localhost:4000/products/2?year=2023`
+
+```typescript
+const router = createRouter({
+  history: createWebHistory(import.meta.env.BASE_URL),
+  routes: [
+    {
+      path: '/product/:page',
+      name: 'product',
+      component: ProductView,
+    },
+  ],
+})
+```
 
 ```vue
 <script setup lang="ts">
@@ -31,13 +55,6 @@ const year = computed(() => parseInt(<string>route.query.year) || 2000)
 </script>
 
 <template>
-  <h1>This is a product page</h1>
-
-  <h2>$route</h2>
-  <p>Page: {{ $route.params.page }}</p>
-  <p>Year: {{ $route.query.year }}</p>
-
-  <h2>computed</h2>
   <p>Page: {{ page }}</p>
   <p>Year: {{ year }}</p>
 </template>
