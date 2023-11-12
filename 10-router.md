@@ -4,11 +4,9 @@ https://router.vuejs.org/installation.html
 
 ## $route
 
-```vue
-<script setup>
-// current path is http://localhost:4000/products?page=4
-</script>
+* Visiting `http://localhost:4000/products?page=4`
 
+```vue
 <template>
   <p>You are on {{ $route.query.page }}</p>
 </template>
@@ -17,17 +15,16 @@ https://router.vuejs.org/installation.html
 ## useRoute
 
 ```vue
-<script setup>
+<script setup lang="ts">
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
-const page = computed(() => parseInt(route.query.page) || 1)
 
-// current path is http://localhost:4000/products?page=4
+const page = computed(() => parseInt(<string>route.query.page) || 1)
 </script>
 
 <template>
-  <p>You are on {{ page }}</p>
+  <p>Current page is {{ page }}</p>
 </template>
 ```
