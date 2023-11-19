@@ -8,11 +8,11 @@ https://vuejs.org/guide/essentials/lifecycle.html
 ## onMounted
 
 ```vue
-<script setup>
+<script setup lang="ts">
 import { onMounted } from 'vue'
 
 onMounted(() => {
-  console.log(`the component is now mounted.`)
+  alert('hello')
 })
 </script>
 ```
