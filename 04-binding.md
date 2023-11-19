@@ -2,7 +2,7 @@
 
 https://vuejs.org/guide/essentials/class-and-style.html
 
-## Class binding
+## ref
 
 ```vue
 <script setup lang="ts">
@@ -23,6 +23,8 @@ const isRed = ref<boolean>(true)
 }
 </style>
 ```
+
+## reactive
 
 ```vue
 <script setup lang="ts">
