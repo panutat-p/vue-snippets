@@ -5,10 +5,10 @@ https://vuejs.org/guide/essentials/class-and-style.html
 ## Class binding
 
 ```vue
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue'
 
-const isRed = ref(true)
+const isRed = ref<boolean>(true)
 </script>
 
 <template>
@@ -25,23 +25,18 @@ const isRed = ref(true)
 ```
 
 ```vue
-<script setup>
+<script setup lang="ts">
 import { reactive } from 'vue'
 
-const textBlue = reactive({
-  'text-red': true,
+const titleStyle = reactive({
+  color: 'yellow',
+  fontSize: '50px',
 })
 </script>
 
 <template>
-  <div v-bind:class="textBlue">
-    <h1>Hello</h1>
+  <div>
+    <h1 v-bind:style="titleStyle">Hello</h1>
   </div>
 </template>
-
-<style>
-.text-red {
-  color: blue;
-}
-</style>
 ```
