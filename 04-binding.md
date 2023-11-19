@@ -6,22 +6,38 @@ https://vuejs.org/guide/essentials/class-and-style.html
 
 ```vue
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref } from 'vue';
 
-const isRed = ref<boolean>(true)
+const isHighlighted = ref<boolean>(false);
+
+const textClass = ref('normal-text');
+
+const toggleClass = () => {
+  isHighlighted.value = !isHighlighted.value;
+  textClass.value = isHighlighted.value ? 'highlighted-text' : 'normal-text';
+};
 </script>
 
 <template>
-  <div v-bind:class="{ 'text-red': isRed }">
-    <h1>Hello</h1>
+  <div>
+    <button @click="toggleClass">Toggle Class</button>
+    <p :class="textClass">Hello, Vue with Composition API!</p>
   </div>
 </template>
 
-<style>
-.text-red {
+<style scoped>
+.normal-text {
+  color: white;
+  font-size: 25px;
+}
+
+.highlighted-text {
   color: red;
+  font-weight: bold;
+  font-size: 50px;
 }
 </style>
+
 ```
 
 ## reactive
